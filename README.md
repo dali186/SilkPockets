@@ -1,6 +1,6 @@
 # SlikPockets (錦囊妙計)
 공부한 내용을 기록하는 repository    
-~~위급할 때 꺼내볼 제갈량의 비단주머니~~
+~~위급할 때 꺼내볼 제갈량의 비단주머니~~    
 
 ## Contents
 + [Data Structure](https://github.com/dali186/CS-Study/tree/main/DataStructure "Data Structures")
