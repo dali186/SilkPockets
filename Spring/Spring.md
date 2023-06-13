@@ -7,3 +7,4 @@ __배운 내용을 복습하고 기록하는 목표로 작성되었습니다__
 - `Spring Boot` : 스프링 기반으로 자주 사용되는 설정으로 개발할 수 있게 해주는 상위 프레임워크
 
 #### Spring Framework Runtime
+![SpringFrameworkRuntime](https://github.com/dali186/SilkPockets/assets/51067466/205ba08b-6508-4d37-a35c-3db83d468ec8)
