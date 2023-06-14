@@ -24,7 +24,7 @@ __배운 내용을 복습하고 기록하는 목표로 작성되었습니다__
 의존성을 맺다?
 - A 클래스에서 B 클래스의 객체를 사용하고 있는 경우, A 객체는 B 객체에 의존성을 맺고 있다고 표현.
 - 의존성을 맺는 방법으로는 `생성자 주입`, `필드 주입`, `수정자(setter) 주입`이 있다.     
-- [작성한 클래스 내에서 외부 클래스를 직접 결합 시키는게 아니라. 외부에서 객체를 생성해주고 작성한 클래스 생성 시 의존성을 주입해준다.](https://github.com/dali186/SilkPockets/blob/main/Spring/lab/DependencyInjection.java)
+- [작성한 클래스 내에서 외부 클래스를 직접 결합 시키는게 아니라. 외부에서 객체를 생성해주고 작성한 클래스 생성 시 의존성을 주입해준다.](https://github.com/dali186/SilkPockets/blob/main/Spring/%231_SpringCore/lab/DependencyInjection.java)
 #### Bean
 - java에서의 `Bean`
     - 데이터를 저장하기 위한 구조체.
@@ -69,5 +69,5 @@ __배운 내용을 복습하고 기록하는 목표로 작성되었습니다__
 #### Null Safety
 
 <div align="right">
-<a href="https://github.com/dali186/SilkPockets/blob/main/Spring/%232_SpringPre/%232_SpringPre.md">#2 Annotation</a>
+<a href="https://github.com/dali186/SilkPockets/blob/main/Spring/%232_SpringPre/%232_SpringPre.md">#2 SpringPre</a>
 </div>
