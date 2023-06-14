@@ -69,5 +69,5 @@ __배운 내용을 복습하고 기록하는 목표로 작성되었습니다__
 #### Null Safety
 
 <div align="right">
-[#2 Annotation](https://github.com/dali186/SilkPockets/blob/main/Spring/%232_Annotation/%232_Annotation.md)
+<a href="https://github.com/dali186/SilkPockets/blob/main/Spring/%232_Annotation/%232_Annotation.md">#2 Annotation</a>
 </div>
