@@ -31,11 +31,14 @@ __배운 내용을 복습하고 기록하는 목표로 작성되었습니다__
     - `private property`와 `getter/setter`으로만 데이터를 접근
 - Spring에서의 `Bean`
     - IoC Container(ApplicationContext)에 Bean으로 등록
-    - 일반적으로 `서비스 계층 개체`, `리포지토리 또는 데이터 액세스 개체(DAO)와 같은 지속성 계층 개체`, `웹 컨트롤러와 같은 프레젠테이션 개체`, `JPA와 같은 인프라 개체`, `EntityManagerFactoryJMS 대기열` 등을 정의합니다.
-    - `@Component`어노테이션으로 빈을 등록할 수 있다.(상속 받은 어노테이션도 가능)
+    - 일반적으로 `서비스 계층 개체`, `리포지토리 또는 데이터 액세스 개체(DAO)와 같은 지속성 계층 개체`, `웹 컨트롤러와 같은 프레젠테이션 개체`, `JPA와 같은 인프라 개체`, `EntityManagerFactoryJMS 대기열` 등을 정의.
     - `Bean` 등록 시 필요 정보
-        - Class 경로
-        - Bean의 이름 ([명명규칙](https://docs.spring.io/spring-framework/reference/core/beans/definition.html#beans-beanname))
-        - Scope (Singleton / prototype / request)
-        - Lifecycle Callback
-#### AOP
+        - `Class 경로`
+        - `Bean의 이름` ([명명규칙](https://docs.spring.io/spring-framework/reference/core/beans/definition.html#beans-beanname))
+        - `Scope` (Singleton / prototype / request)
+            - `singleton` : 컨테이너에 단일로 생성
+            - `prototype` : 작업 시 마다 Bean을 새로 생성하고 싶은 경우
+            - `request` : http 요청마다 새롭게 Bean을 생성하고 싶은 경우
+        - `Lifecycle Callback`
+#### AOP : 관점 지향 프로그래밍
+- `로깅`, `트랜잭션`, `인증`
