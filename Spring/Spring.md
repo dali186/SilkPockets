@@ -40,5 +40,30 @@ __배운 내용을 복습하고 기록하는 목표로 작성되었습니다__
             - `prototype` : 작업 시 마다 Bean을 새로 생성하고 싶은 경우
             - `request` : http 요청마다 새롭게 Bean을 생성하고 싶은 경우
         - `Lifecycle Callback`
-#### AOP : 관점 지향 프로그래밍
-- `로깅`, `트랜잭션`, `인증`
+#### AOP(Aspect-Oriented Programming) : 관점 지향 프로그래밍
+- `로깅`, `트랜잭션`, `인증` __같은 여러 모듈 또는 객체에서 공통으로 발생하는 기능__ 을 `OOP`로 구현하면 _중복이 발생하거나 코드가 복잡해짐._
+- __핵심 로직과 위와같은 부가기능을 분리하여 모듈화하여 재사용할 수 있도록 하는 것이 목표__
+- AOP 주요 용어
+    - `Join point` : advice(실제 기능)이 적용할 수 있는 모든 위치. _스프링 AOP는 프록시 패턴사용하므로 joinpoint는 메소드 실행 시점_
+    - `Pointcut` : joinpoint 중 실제로 advice를 적용할 대상을 선택, _Spring은 어느 메소드에 적용할 것인지 명시_
+    - `Target(Obejct)` : advice의 대상
+    - `Advice` : AOP에서 실제로 적용하는 기능
+    - `Aspect` : 프록시 생성기가 @Aspect를 보고 advisor(advice + pointcut)로 변환해서 저장.
+    - `Proxy`
+        - `JDK 동적 프록시` (JDK Dynamic Proxy) - 인터페이스 기반
+        - `CGLIB 프록시` (Code Generation Library) - 클래스 기반
+#### Validation : 유효성 검증
+- 주로 사용장 또는 서버의 요청 (http request) 내용에서 잘못된 내용이 있는 지 확인하는 단계
+    - `데이터 검증`
+    - `비즈니스 검증`
+#### Data Binding
+- 사용자나 외부 서버의 요청 데이터를 특정 도메인 객체에 저장해서 프로그램 Request에 담아주는 것
+- `Converter`
+#### Resource
+- java.net.URL의 한계 (classpath 내부 접근, 상대경로 등)를 넘어서기 위해 스프링에서 추가 구현
+- 해당 path가 파일인지 url인지 접근할 때 사용
+- `Spring ResourceLoader`, (`Url`, `ClassPath`, `FileSystem`, `ServletContext`)`Resource`
+#### SpEL (Spring Expression Language)
+- 필요한 데이터나 설정 값을 얻어올 수 있게 하는 특별한 현태의 표현식에 가까운 간편한 언어
+- @Value("#{1+1}")
+#### Null Safety
