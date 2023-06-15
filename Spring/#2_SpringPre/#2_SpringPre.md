@@ -28,6 +28,30 @@
 ### ComponentScan
 __스프링 어플리케이션 실행 시, Bean으로 등록한 클래스들을 스캔하는 것__      
 `@Component`로 지정한 대상을 스캔할 수 있다.
+```
+public class ComponentScanner {
+
+    // 클래스를 스캔하는 메소드
+    public static Set<Class> scanClass(String pkg) throws Exception {
+        // 현재 패키지 위치를 받아옴 (shop.mtcoding._core)
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+
+        // 클래스들을 담을 컬렉션
+        Set<Class> classes = new HashSet<>();
+
+        // 매개변수로 전달받은 패키지 위치
+        URL packageUrl = classLoader.getResource(pkg.replace(".", "/"));
+
+        // 지정한 패키지의 모든 파일 불러오기
+        File packageDirectory = new File(packageUrl.toURI());
+
+        // 패키지의 클래스 스캔
+        scanPackage(pkg, packageDirectory, classes);
+
+        return classes;
+    }
+}
+```
         
 ### DispatcherServlet 
 서버에 요청이 들어오면(HTTP protocol) 가장 먼저 받아 적절한 컨트롤러에게 넘겨주는 컨트롤러, __요청을 컨트롤러를 찾아서 위임하고, 처리된 결과를 받아오는 기능 수행__
@@ -43,6 +67,42 @@ __스프링 어플리케이션 실행 시, Bean으로 등록한 클래스들을 
 - responsebody가 붙어있으면 return되는 값을 그대로 응답 (`MessageConverter` 호출)
 - return 값이 String이면 그대로 응답, Object형이면 json으로 변환
     - 본래는 view를 탐색(`ViewResolver` 호출)
+```
+    public static String findUri(Set<Class> classes, String uri) throws Exception {
+        for (Class cls : classes) {
+
+            // 해당 클래스가 Controller 어노테이션을 가지고 있을 경우
+            if (cls.isAnnotationPresent(Controller.class)) {
+                // 해당 클래스 인스턴스
+                Object instance = cls.newInstance();
+
+                // 클래스의 메소드 배열에 저장
+                Method[] methods = cls.getDeclaredMethods();
+
+                for (Method mt : methods) {
+                    // 해당 메소드에 RequestMapping 어노테이션 갖고오기
+                    Annotation anno = mt.getDeclaredAnnotation(RequestMapping.class);
+                    RequestMapping rm = (RequestMapping) anno;
+
+                    // 매개변수로 전달받은 URI와 RequestMapping의 uri 변수가 동일한지 확인
+                    if (rm.uri().equals(uri)) {
+                        // ResponseBody 어노테이션이 붙어있으면 메시지 컨버터 발동
+                        if (mt.isAnnotationPresent(ResponseBody.class)) {
+                            Object result = mt.invoke(instance);
+                            return MessageConverter.convert(result);
+                        }
+                        // 그게 아니라면 뷰 리졸버 발동
+                        else {
+                            String fileName = (String) mt.invoke(instance);
+                            return ViewResolver.convert(fileName);
+                        }
+                    }
+                }
+            }
+        }
+        return "404 Not Found";
+    }
+```
 
 #### MessageConverter
 HTTP 요청과 응답의 메시지를 변환하는 역할을 담당하는 컴포넌트               
