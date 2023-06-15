@@ -67,7 +67,3 @@ __배운 내용을 복습하고 기록하는 목표로 작성되었습니다__
 - 필요한 데이터나 설정 값을 얻어올 수 있게 하는 특별한 현태의 표현식에 가까운 간편한 언어
 - @Value("#{1+1}")
 #### Null Safety
-
-<div align="right">
-<a href="https://github.com/dali186/SilkPockets/blob/main/Spring/%232_SpringPre/%232_SpringPre.md">#2 SpringPre</a>
-</div>
