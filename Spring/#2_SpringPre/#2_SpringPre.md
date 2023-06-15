@@ -38,14 +38,14 @@ __스프링 어플리케이션 실행 시, Bean으로 등록한 클래스들을 
     - model and view     
           
 `@RequestMapping`
-- `distpatcher`가 `controller`에 `@RequestMapping`이 붙어있는 모든 메소드를 찾아서 URI를 비교하고, `동일하면 호출`
+- `distpatcher`가 `controller`에 `@RequestMapping`이 붙어있는 모든 메소드를 찾아서 URI를 비교하고, `동일하면 호출`             
 `@ResponseBody`
 - responsebody가 붙어있으면 return되는 값을 그대로 응답 (`MessageConverter` 호출)
 - return 값이 String이면 그대로 응답, Object형이면 json으로 변환
     - 본래는 view를 탐색(`ViewResolver` 호출)
 
 #### MessageConverter
-HTTP 요청과 응답의 메시지를 변환하는 역할을 담당하는 컴포넌트
+HTTP 요청과 응답의 메시지를 변환하는 역할을 담당하는 컴포넌트               
 `MappingJackson2HttpMessageConverter` : JSON 형식의 데이터를 객체로 변환하거나, 객체를 JSON으로 변환
 
 #### ViewResolver
