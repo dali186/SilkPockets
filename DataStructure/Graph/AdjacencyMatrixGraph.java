@@ -10,7 +10,7 @@ public class AdjacencyMatrixGraph implements MyGraph {
     private Set<Integer> vertexes;
     //차수, 3번 노드를 가리키고 있는 노드가 5개일 때, inDegrees(3) = 5
     private Map<Integer, Integer> inDegrees;
-
+                
     public AdjacencyMatrixGraph(int numOfVertex){
         this.vertexes = new HashSet<>();
         this.inDegrees = new HashMap<>();
